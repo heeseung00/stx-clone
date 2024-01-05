@@ -45,6 +45,7 @@ body {
   width: 100%;
   clear: both;
 }
+
 /* 레이아웃 */
 .wrap {
   display: block;
@@ -643,4 +644,14 @@ footer{
 .footer-list li address{
     /* address 하면 기울어지기 때문에, 스타일 normal로 똑바로 세운다. */
     font-style: normal;
+}
+
+/* top 버튼 */
+.top-button{
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 82px;
+  height: 210px;
+  z-index: 999;
 }
