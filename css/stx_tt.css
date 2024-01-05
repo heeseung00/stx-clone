@@ -226,6 +226,11 @@ body {
   border: 0;
 }
 
+.visual-bt:hover {
+  cursor : pointer
+}
+
+
 .visual-txt {
     font-size: 20px;
     font-weight: 300;
