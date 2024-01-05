@@ -1,0 +1,738 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Whisper&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul,li {
+  li: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  /* 두번재 폰트는 대체 글꼴 */
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  color: #444;
+  /* 줄간격: 폰트 사이즈 x 배수 */
+  line-height: 1.14;
+  letter-spacing: 0;
+  word-break: break-all;
+  /* word-break: keep-all; */
+}
+
+/* 공통클래스 */
+.container {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 클리어 픽스 */
+.clearfix::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  clear: both;
+}
+
+/* 레이아웃 */
+#wrap {
+  display: block;
+  position: relative;
+}
+
+/* 상단 */
+.header {
+  display: block;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 99;
+  transition: all 0.5s;
+  /* padding: 20px 25px; */
+}
+
+/* 전체 넓이를 차지하는 서브 메뉴 만들 때 사용하는 방법.
+ */
+.header:hover {
+  height: calc(80px + 330px);
+}
+
+/* 헤더 및 회색선 만들기 */
+/* 헤더에 hover 했을 때 나오는 영역 */
+.header::before {
+  width: 100%;
+  height: 80px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: #f9d7d7; */
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.header::after {
+  width: 100%;
+  height: 330px;
+  content: "";
+  position: absolute;
+  /* top은 border을 포함한 header의 높이 값만큼 적용. */
+  top: 81px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header-inner {
+  /* 최대 width 설정, 그 이상으로 안 늘어남. */
+  width: 100%;
+  height: 80px;
+  max-width: 2000px;
+  background-color: #fff;
+  z-index: 1;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  /* display: block;
+    width: 250px;
+    height: 100%;
+    float: left; */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo > img {
+  width: 220px;
+  height: 40px;
+}
+
+/* nav */
+.nav {
+  width: calc(178px * 6);
+  /* height: 300px; */
+  /* float: left; */
+  /* background-color: antiquewhite; */
+  margin: 0 auto;
+}
+
+.gnb {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.gnb > li {
+  width: 178px;
+  float: left;
+}
+
+.gnb > li > a {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 80px;
+}
+
+.gnb a:hover {
+  color: #ed1c24;
+}
+
+.gnb > li:hover > a {
+  color: #ed1c24;
+}
+
+.depth2 {
+  padding: 40px 0;
+}
+
+.depth2 > li > a {
+  color: #fff;
+  font-size: 15px;
+  /* font-size x 1.92배 */
+  line-height: 1.92;
+}
+
+/* 언어 */
+.lang {
+  position: absolute;
+  right: 20px;
+  top: 35px;
+}
+
+.lang-list {
+}
+
+.lang-list li {
+  float: left;
+  padding: 0 10px;
+  position: relative;
+  /* border-right: 1px solid #222; */
+}
+
+.lang-list li a {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  color: #888;
+}
+
+.lang-list li:last-child a {
+  color: #222;
+}
+
+/* .lang-list li:nth-of-type(2){
+    border: 0;
+} */
+
+.lang-list li::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 1px;
+  height: 11px;
+  /* after로 선 추가할 때는 색깔 백그라운드로. */
+  background-color: #999;
+}
+
+.lang-list li:last-child::after {
+  content: none;
+}
+
+/* 비주얼 */
+.visual {
+  display: block;
+  width: 100%;
+  height: 910px;
+  position: relative;
+  background: url("../images/img_visual01_background.png") no-repeat center
+    fixed;
+  background-size: cover;
+  color: #fff;
+  margin-top: 80px;
+}
+
+.visual-inner {
+  padding-top: 1px;
+  height: 100%;
+  /* position: relative; */
+}
+
+.visual-slogan {
+  position: relative;
+  display: block;
+  font-size: 70px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 240px;
+}
+
+.visual-slogan::before {
+  /* 글자 앞 before 글자 뒤 after 사용. */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -48px;
+  width: 60px;
+  height: 5px;
+  background-color: #ed1c24;
+}
+
+.visual-text {
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 42px;
+}
+
+.visual-btn {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  /* 버튼 크기 33px에서 중간점에 위치잡아서 옮기려고 설정하는 값 */
+  left: calc(50% -33px / 2);
+  /* transform: translatex(-50%); */
+  left: 50%;
+  text-align: center;
+  background: url("../images/bg_common.png");
+  /* 백그라운드 이미지가 여러개 일 때 백그라운드 위치값을 잡아서 보이게 한다. */
+  background-position: -122px 0;
+  width: 33px;
+  height: 33px;
+  /* background-color: transparent; */
+  border: 0;
+  font-size: 0;
+  color: #fff;
+}
+
+/* 비지니스 */
+.business {
+  display: block;
+  width: 100%;
+  height: 884px;
+  padding: 110px 0;
+  text-align: center;
+}
+
+.business-inner {
+  width: 100%;
+  height: 100%;
+}
+
+/* 비지니스 탑 */
+.business-title {
+  position: relative;
+  font-size: 44px;
+  font-weight: 700;
+  color: #222;
+}
+
+.business-title::after {
+  /* 글자 앞 before 글자 뒤 after 사용. */
+  display: block;
+  content: "";
+  position: absolute;
+  /* left: calc(50% - 37px / 2);
+    bottom: 0; */
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+  width: 37px;
+  height: 4px;
+  background-color: #ed1c24;
+}
+
+.business-desc {
+  font-size: 16px;
+  font-weight: 300;
+  margin: 50px 0;
+  color: #444444;
+  line-height: 1.5;
+}
+
+/* 비지니스 바텀 */
+.business-bottom {
+  position: relative;
+  display: block;
+  /* width: 1400px;
+    height: 420px;
+    margin-top: 70px;
+    background-color: antiquewhite; */
+}
+
+.business-bottom-list {
+  position: relative;
+  display: block;
+}
+
+.business-bottom-list li {
+  display: block;
+  /* position: absolute; */
+  width: calc(100% / 5);
+  height: 420px;
+  float: left;
+  font-size: 23px;
+  background: url("../images/img_business.png");
+  background-position: 0 0;
+}
+
+/* .business-bottom-list li:nth-child(2){
+    background-position: -240px 0;
+}
+
+.business-bottom-list li:nth-child(3){
+    background-position: -480px 0;
+} */
+
+.business-bottom-list li:nth-child(1) {
+  background-position: calc(240px * 0) 0px;
+}
+
+.business-bottom-list li:nth-child(2) {
+  background-position: calc(240px * -1) 0px;
+}
+
+.business-bottom-list li:nth-child(3) {
+  background-position: calc(240px * -2) 0px;
+}
+
+.business-bottom-list li:nth-child(4) {
+  background-position: calc(240px * -3) 0px;
+}
+
+.business-bottom-list li:nth-child(5) {
+  background-position: -960px 0px;
+}
+
+.business-bottom-list li a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  color: #fff;
+  background-color: rgba(244, 128, 37, 0);
+  text-align: center;
+  font-size: 25px;
+  transition: all 0.3s;
+}
+
+.business-bottom-list li a:hover {
+  background-color: rgba(244, 128, 37, 1);
+}
+
+.business-bottom-list li a::after {
+  content: "";
+  display: block;
+  background: url("../images/bg_common.png");
+  background-position: 0 0;
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 130px;
+  height: 112px;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.business-bottom-list li a:hover::after {
+  opacity: 1;
+}
+
+.business-bottom-list li:nth-child(1) a::after {
+  background-position: -168px 0;
+}
+
+.business-bottom-list li:nth-child(2) a::after {
+  background-position: -298px 0;
+}
+
+.business-bottom-list li:nth-child(3) a::after {
+  background-position: 0 -117px;
+}
+
+.business-bottom-list li:nth-child(4) a::after {
+  background-position: -137px -123px;
+}
+
+.business-bottom-list li:nth-child(5) a::after {
+  background-position: -276px -117px;
+}
+
+/* 뉴스 */
+.news {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 480px;
+  background-color: #ed1c24;
+  padding: 55px 0;
+}
+
+.news-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #58595b;
+}
+
+.news-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.news-wrap {
+  position: relative;
+  display: block;
+  width: calc(50% - 95px);
+  height: 100%;
+  /* background-color: antiquewhite; */
+}
+
+.news-inner .news-wrap:first-child {
+  float: left;
+}
+
+.news-inner .news-wrap:last-child {
+  float: right;
+}
+
+.news-wrap h3 {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 45px;
+}
+
+.news-content {
+  position: relative;
+  display: block;
+}
+
+.news-list li {
+  display: block;
+  position: relative;
+  padding: 24px 0;
+  font-size: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.new-list ul li > a:last-child {
+  border-bottom: 1px solid #e77277;
+}
+
+.news-list li::after {
+  color: ;
+}
+
+/* a에 color 주기 */
+.news-list li a {
+  display: block;
+  position: relative;
+  color: #fff;
+  /* border-right: 1px solid #fff; */
+}
+
+.news-list li a .news-txt {
+  display: block;
+  position: relative;
+  /* 말줄임 "..."  표시, 너비가 꼭 있어야 한다.*/
+  width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.news-list li a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 48px;
+  height: 12px;
+  background: url("../images/bg_common.png") no-repeat;
+  background-position: 0px -56px;
+}
+
+/* 고객센터 */
+.cs {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 360px;
+  padding: 60px 0 100px;
+  background: #f8f8f8;
+}
+
+.cs-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* padding: 40px 56px; */
+  background-color: #fff;
+}
+
+.cs-link {
+  display: block;
+  position: relative;
+  width: 598px;
+  height: 200px;
+  padding: 40px 56px;
+}
+
+.cs-link:first-child {
+  display: block;
+  float: left;
+  border-right: 2px solid #f8f8f8;
+  background: url(../images/bg_faq.png) no-repeat;
+  background-position: 380px 40px;
+}
+
+.cs-link:last-child {
+  display: block;
+  float: left;
+  background: url(../images/bg_custom.png) no-repeat;
+  background-position: 420px 40px;
+}
+
+/* .cs-textBox{
+    width: 391px;
+    height: 100%;
+    float: left;
+    padding: 40px 56px;
+}
+
+.cs-bg{
+    display: block;
+    width: 226px;
+    float: right; 
+} */
+
+.cs-link h3 {
+  display: block;
+  position: relative;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.cs-link p {
+  font-size: 16px;
+  line-height: 25px;
+  margin-top: 20px;
+}
+
+/* 회사소개 */
+.about {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 611px;
+  padding: 100px 0;
+  clear: both;
+  background-color: #fff;
+}
+
+.about-innner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.about-textBox {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 370px;
+  background: url(../images/img_about.png) no-repeat;
+  background-position: 550px 0;
+  margin-bottom: 100px;
+}
+
+.about-textBox h2 {
+  font-size: 44px;
+  font-weight: 700;
+  padding-top: 20px;
+}
+
+.about-textBox h4 {
+  display: block;
+  position: relative;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 30px;
+  padding-top: 50px;
+}
+
+.about-textBox h4::after {
+  display: block;
+  content: "";
+  width: 35px;
+  height: 5px;
+  background-color: #ed1c24;
+  position: absolute;
+  top: 70px;
+  left: -100px;
+}
+
+.about-textBox p {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+  padding-top: 20px;
+}
+
+.about-textBox p,
+.about-textBox h4 {
+  margin-left: 100px;
+}
+
+/* about 아이콘 */
+.about-icon {
+  display: block;
+  position: relative;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.about-icon-area {
+  /* text-align: center; 이 안될 경우에 display: inline-block; 적용해보기 */
+  display: inline-block;
+  position: relative;
+  /* background-color: antiquewhite; */
+}
+
+.about-icon-area li {
+  display: block;
+  position: relative;
+  float: left;
+  padding: 0 100px;
+}
+
+.about-icon-area li a {
+  display: inline-block;
+  position: relative;
+  font-size: 21px;
+  color: #111;
+  font-weight: 500;
+}
+
+.about-icon-area li a::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 110px;
+  height: 108px;
+  background: url(../images/bg_icon.png) no-repeat;
+  margin-bottom: 25px;
+  margin-right: 5px;
+}
+
+.about-icon-area li:nth-child(1) a::before {
+  background-position: 0 0;
+}
+
+.about-icon-area li:nth-child(2) a::before {
+  background-position: -110px 0;
+}
+
+.about-icon-area li:nth-child(3) a::before {
+  background-position: -220px 0;
+}
+
+
+/* 하단 */
+.footer {
+  position: relative;
+  top: 100%;
+  width: 100%;
+  height: 180px;
+}
