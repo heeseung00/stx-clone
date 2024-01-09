@@ -49,7 +49,8 @@ body {
 /* 안내창(모달창) */
 
 body.active {
-  overflow-y: auto;
+  /* 세로 스크롤 없애기 */
+  overflow-y: hidden;
 }
 
 .modal-wrap {
