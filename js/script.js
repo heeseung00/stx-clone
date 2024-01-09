@@ -11,7 +11,7 @@
 //     button.addEventListener("click" , function(){
 //         // 버튼을 클릭했을 때, 실행해라.  scrollTosection()을
 //         // scrollTosection() #business 영역으로 이동 하라느 뜻.
-//       scrollTosection("#business");  
+//       scrollTosection("#business");
 //     })
 
 //     function scrollTosection(sectionId){
@@ -23,22 +23,33 @@
 //             }
 //     }
 
-
 // }
 
-window.onload = function(){
-    const button = document.querySelector(".visual-bt")
-    button.addEventListener("click" , function(){
-        scrollTosection("#footer");
-    })
-    function scrollTosection(sectionId){
-        const section = document.querySelector(sectionId);
-            if(section){
-                section.scrollIntoView({behavior:"smooth"})
-            }
+window.onload = function () {
+  const button = document.querySelector(".visual-bt");
+  button.addEventListener("click", function () {
+    scrollTosection("#header");
+  });
+  function scrollTosection(sectionId) {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
+  }
 
-// TOP 버튼 스크롤 기능
-
-}
-
+  // top 버튼 스크롤 기능
+  // topBtn변수 선언 -> 원하는 id 값을 선택 -> 그 id에 어떤 이벤트를 줄 건데, "click" 했을 때 이벤트 발동.
+  const topBtn = document.getElementById("top-btn");
+  topBtn.addEventListener("click", function (even) {
+    even.preventDefault();
+    console.log;
+    // 조건문
+    if (window.scrollY == 0) {
+      window.scrollTo({
+        top: 99999,
+        behavior: "smooth",
+      });
+    } else {
+    }
+  });
+};
