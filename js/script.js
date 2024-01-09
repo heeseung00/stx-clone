@@ -40,16 +40,32 @@ window.onload = function () {
   // top 버튼 스크롤 기능
   // topBtn변수 선언 -> 원하는 id 값을 선택 -> 그 id에 어떤 이벤트를 줄 건데, "click" 했을 때 이벤트 발동.
   const topBtn = document.getElementById("top-btn");
-  topBtn.addEventListener("click", function (even) {
-    even.preventDefault();
-    console.log;
+  topBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log(window.scrollY);
     // 조건문
     if (window.scrollY == 0) {
       window.scrollTo({
-        top: 99999,
+        top: 9999,
         behavior: "smooth",
       });
     } else {
+      window.scrollTo({
+        bottom: 0,
+        behavior: "smooth",
+      });
+    }
+  });
+
+  //화살표 이미지 회전
+  const topBtnImg = document.getElementById("top-btn-img");
+  window.addEventListener("scroll", function (scTop) {
+    scTop = window.document.documentElement.scrollTop;
+    // 만약
+    if (scTop > 0) {
+      topBtnImg.classList.add("up");
+    } else {
+      topBtnImg.classList.remove("up");
     }
   });
 };

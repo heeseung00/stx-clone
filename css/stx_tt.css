@@ -700,8 +700,9 @@ footer {
   transform: rotate(180deg);
 }
 
-.top-button .top-btn img .up {
-  transform: rotate(0deg);
+/* 이미지의 위 아래 버튼을 적용하기 위해서 사용. = .up , 띄어쓰기x*/
+.top-button .top-btn img.up {
+  transform: rotate(45deg);
 }
 
 /* .chat-btn 애니메이션 효과 */
