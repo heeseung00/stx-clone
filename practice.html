@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 코드 작동 확인</title>
+    <style>
+
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap");
+/*  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+ul,
+li {
+  list-style: none;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.14;
+  letter-spacing: 0;
+  word-break: break-all;
+  /* word-break:keep-all; */
+}
+      .wrap {
+        display: block;
+        position: relative;
+      }
+      /* 헤더 */
+      .header {
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 9000;
+        transition: all 0.5s;
+      }
+      .header:hover {
+        height: calc(330px + 80px);
+        /* height: 200px; */
+      }
+      /* 헤더에 hover했을때 나오는 영역 */
+      .header::before {
+        width: 100%;
+        height: 80px;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        border-bottom: 1px solid #d8d8d8;
+      }
+      .header::after {
+        width: 100%;
+        height: 330px;
+        content: "";
+        position: absolute;
+        top: 81px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .header-inner {
+        width: 100%;
+        max-width: 1800px;
+        height: 80px;
+        z-index: 1;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      /* 로고 */
+      .logo {
+        position: absolute;
+        top: 20px;
+        left: 28px;
+      }
+
+      /* 네비게이션, 메뉴 */
+      .nav {
+        width: calc(178px * 6);
+        margin: 0 auto;
+      }
+      .gnb {
+        position: relative;
+        display: block;
+        width: calc(178px * 6);
+        /* overflow: hidden; */
+      }
+      .gnb > li {
+        width: 178px;
+        float: left;
+      }
+      .gnb > li > a {
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 80px;
+      }
+      .gnb a:hover {
+        color: #ed1c24;
+      }
+      .gnb > li:hover > a {
+        color: #ed1c24;
+      }
+      .depth2 {
+        padding: 40px 0;
+      }
+      .depth2 > li > a {
+        color: #fff;
+        font-size: 15px;
+        /* 숫자만 적으면 font size의 배수로 인식함.(15 * 1.95) */
+        line-height: 1.92;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header class="header" id="header">
+        <div class="header-inner">
+          <!-- 로고 -->
+          <a href="index.html" class="logo">
+            <img src="images/smstxconst_logo.png" alt="STX건설" />
+          </a>
+          <!-- 네비게이션 -->
+          <nav class="nav">
+            <ul class="gnb">
+              <li>
+                <a href="#">회사소개</a>
+                <ul class="depth2">
+                  <li><a href="#">인사말</a></li>
+                  <li><a href="#">STX건설</a></li>
+                  <li><a href="#">기업문화</a></li>
+                  <li><a href="#">STX건설연혁</a></li>
+                  <li><a href="#">조직안내</a></li>
+                  <li><a href="#">윤리경영</a></li>
+                  <li><a href="#">안전·보건·품질경영</a></li>
+                  <li><a href="#">찾아오시는길</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">사업분야</a>
+                <ul class="depth2">
+                  <li><a href="#">건축사업</a></li>
+                  <li><a href="#">주택사업</a></li>
+                  <li><a href="#">토목사업</a></li>
+                  <li><a href="#">플랜트/공작기계사업</a></li>
+                  <li><a href="#">해외사업</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">사회공헌</a>
+                <ul class="depth2">
+                  <li><a href="#">나눔의생각</a></li>
+                  <li><a href="#">주요활동분야</a></li>
+                  <li><a href="#">활동현황</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">홍보센터</a>
+                <ul class="depth2">
+                  <li><a href="#">홍보동영상</a></li>
+                  <li><a href="#">홍보브로슈어</a></li>
+                  <li><a href="#">STX건설뉴스</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">고객지원</a>
+                <ul class="depth2">
+                  <li><a href="#">자주묻는질문</a></li>
+                  <li><a href="#">고객문의</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">채용정보</a>
+                <ul class="depth2">
+                  <li><a href="#">채용안내</a></li>
+                  <li><a href="#">채용공고</a></li>
+                  <li><a href="#">채용FAQ</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+  </body>
+</html>
